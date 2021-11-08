@@ -20,8 +20,8 @@ namespace IncomeComparison.cs
             Console.WriteLine("How many hours worked per week?");
             int hours2 = Convert.ToInt32(Console.ReadLine());
 
-            decimal annualPay1 = (((rate1 * hours1) * 4) * 12);
-            decimal annualPay2 = (((rate2 * hours2) * 4) * 12);
+            decimal annualPay1 = (rate1 * hours1) * 52;
+            decimal annualPay2 = (rate2 * hours2) * 52;
 
             Console.WriteLine("\n\n");
 
