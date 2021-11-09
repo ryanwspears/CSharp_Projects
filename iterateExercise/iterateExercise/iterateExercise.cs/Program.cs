@@ -188,17 +188,19 @@ namespace iterateExercise.cs
                 "level"
             };
 
+            List<string> checkList = new List<string>();
             List<string> dupes = new List<string>();
 
-            foreach(string s in wordList3)
+            foreach (string s in wordList3)
             {
-                if(dupes.Contains(s))
+                if(checkList.Contains(s))
                 {
-                    Console.WriteLine(s + " has already appeared in the list.");
+                    Console.WriteLine("\n\"" + s + "\" already appears in the list.");
                 }
                 else
                 {
-                    dupes.Add(s);
+                    Console.WriteLine("\n\"" + s + "\" hasn't appeared yet.");
+                    checkList.Add(s);
                 }
             }
             // End part 6
