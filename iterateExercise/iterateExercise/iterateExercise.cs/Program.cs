@@ -189,7 +189,6 @@ namespace iterateExercise.cs
             };
 
             List<string> checkList = new List<string>();
-            List<string> dupes = new List<string>();
 
             foreach (string s in wordList3)
             {
