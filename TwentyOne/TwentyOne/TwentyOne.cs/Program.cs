@@ -11,7 +11,8 @@ namespace TwentyOne.cs
         static void Main(string[] args)
         {
             Deck deck = new Deck();
-            deck = Shuffle(deck);
+            int timesShuffled = 0;
+            deck = Shuffle(deck, out timesShuffled, 3);
 
             foreach(Card card in deck.Cards)
             {
@@ -19,23 +20,39 @@ namespace TwentyOne.cs
             }
 
             Console.WriteLine(deck.Cards.Count);
+            Console.WriteLine("Times Shuffled: {0}", timesShuffled);
 
             Console.ReadLine();
         }
 
-        public static Deck Shuffle(Deck deck)
+        public static Deck Shuffle(Deck deck, out int timesShuffled, int times = 1)
         {
-            List<Card> TempList = new List<Card>();
-            Random rand = new Random();
-
-            while(deck.Cards.Count > 0)
+            timesShuffled = 0;
+            for (int i = 0; i < times; i++)
             {
-                int randIndex = rand.Next(0, deck.Cards.Count);
-                TempList.Add(deck.Cards[randIndex]);
-                deck.Cards.RemoveAt(randIndex);
+                timesShuffled++;
+                List<Card> TempList = new List<Card>();
+                Random rand = new Random();
+
+                while (deck.Cards.Count > 0)
+                {
+                    int randIndex = rand.Next(0, deck.Cards.Count);
+                    TempList.Add(deck.Cards[randIndex]);
+                    deck.Cards.RemoveAt(randIndex);
+                }
+                deck.Cards = TempList;
             }
-            deck.Cards = TempList;
+            
             return deck;
         }
+
+        /*public static Deck Shuffle(Deck deck, int times)
+        {
+            for(int i = 0; i < times; i++)
+            {
+                deck = Shuffle(deck);
+            }
+            return deck;
+        }*/
     }
 }
