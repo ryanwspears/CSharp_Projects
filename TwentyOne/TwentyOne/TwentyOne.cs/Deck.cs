@@ -12,26 +12,13 @@ namespace TwentyOne.cs
         {
             Cards = new List<Card>();
 
-            List<string> Suits = new List<string>()
+            for(int i = 0; i < 13; i++)
             {
-                "Clubs",
-                "Hearts",
-                "Diamonds",
-                "Spades"
-            };
-
-            List<string> Faces = new List<string>()
-            {
-                "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"
-            };
-
-            foreach(string face in Faces)
-            {
-                foreach(string suit in Suits)
+                for(int j = 0; j < 4; j++)
                 {
                     Card card = new Card();
-                    card.Suit = suit;
-                    card.Face = face;
+                    card.Face = (Face)i;
+                    card.Suit = (Suit)j;
                     Cards.Add(card);
                 }
             }
