@@ -10,17 +10,33 @@ namespace TwentyOne.cs
     {
         static void Main(string[] args)
         {
-            Deck deck = new Deck();
-            deck.Shuffle(3);
+            Console.WriteLine("Welcme to the Grand Hotel Casino! Let's start by telling me your name...");
+            string name = Console.ReadLine();
 
-            foreach(Card card in deck.Cards)
+            Console.WriteLine("Hello, " + name + "! How much money did you bring today?");
+            int bank = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Awesome! Would you like to join a game of 21?");
+            string answer = Console.ReadLine().ToLower();
+
+            if(answer == "yes" || answer == "yeah" || answer == "y" || answer == "ya")
             {
-                Console.WriteLine(card.Face + " of " + card.Suit);
+                Player player = new Player(name, bank);
+                Game game = new TwentyOneGame();
+                game += player;
+                player.isPlaying = true;
+
+                while(player.isPlaying && player.Balance > 0)
+                {
+                    game.Play();
+                }
+
+                game -= player;
+                Console.WriteLine("Thank you for playing!");
             }
 
-            Console.WriteLine(deck.Cards.Count);
-
-            Console.ReadLine();
+            Console.WriteLine("Feel free to look around the casino. Goodbye, for now!");
+            Console.Read();
         }
     }
 }
