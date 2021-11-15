@@ -1,5 +1,5 @@
 # C# Projects
-These are some small projects I made using C# in Visual Studio.
+These are some small projects I made using C# and the .NET Framework in Visual Studio.
 
 ## Projects
 - [Car Insurance Quote](https://github.com/ryanwspears/CSharp_Projects/tree/main/CarInsurance/CarInsurance)
